@@ -1,0 +1,10 @@
+/bin/
+# Compiled source #
+###################
+*.class
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Trashes
