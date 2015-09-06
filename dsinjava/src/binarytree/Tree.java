@@ -28,26 +28,28 @@ public class Tree {
 		
 		if(root==null){
 			root=nodeToBeInserterd;
+			System.out.println("Node wiht key "+nodeToBeInserterd.key+" inserted as root");
 		}
 		else{
-			Node parent=root;
+			Node current=root;
+			Node parent;
 			while(true){
-				if(nodeToBeInserterd.key<parent.key && parent.leftChild==null){
+				parent=current;
+				if(nodeToBeInserterd.key<current.key){
+					current =current.leftChild;
+					if(current==null){
 					parent.leftChild=nodeToBeInserterd;
-					System.out.println("Node inserted");
+					System.out.println("Node with key "+nodeToBeInserterd.key+" inserted as left child to parent "+parent.key);
 					return;
+					}
 				}
 				else{
-					parent=parent.leftChild;
-				}
-				
-				if(nodeToBeInserterd.key>parent.key && parent.rightChild==null){
-					parent.rightChild=nodeToBeInserterd;
-					System.out.println("Node inserted");
-					return;
-				}
-				else{
-					parent=parent.rightChild;
+					current=current.rightChild;
+					if(current==null){
+						parent.rightChild=nodeToBeInserterd;
+						System.out.println("Node with key "+nodeToBeInserterd.key+" inserted as right child to parent "+parent.key);
+						return;
+					}
 				}
 			}
 		}
