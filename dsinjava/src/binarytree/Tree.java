@@ -2,7 +2,7 @@ package binarytree;
 
 public class Tree {
 	
-	private Node root;
+	public Node root;
 	
 	public Node find(int key){
 		Node currentNode=root;
@@ -58,5 +58,33 @@ public class Tree {
 	
 	public void delete(int key){
 		
+	}
+	
+	public void preOrderTraversal(Node rootNode){
+		
+		if(rootNode!=null){
+			System.out.println("This is node with key: "+rootNode.key+" and data "+rootNode.data);
+			preOrderTraversal(rootNode.leftChild);
+			preOrderTraversal(rootNode.rightChild);
+		}
+		
+	}
+	
+	public void inOrderTraversal(Node rootNode){
+		
+		if(rootNode!=null){
+			inOrderTraversal(rootNode.leftChild);
+			System.out.println("This is node with key: "+rootNode.key+" and data "+rootNode.data);
+			inOrderTraversal(rootNode.rightChild);
+		}
+	}
+	
+	public void postOrderTraversal(Node rootNode){
+		
+		if(rootNode!=null){
+			postOrderTraversal(rootNode.leftChild);
+			postOrderTraversal(rootNode.rightChild);
+			System.out.println("This is node with key: "+rootNode.key+" and data "+rootNode.data);
+		}
 	}
 }
