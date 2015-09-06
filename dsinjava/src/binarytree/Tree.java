@@ -22,6 +22,36 @@ public class Tree {
 	
 	public void insert(int key, int data){
 		
+		Node nodeToBeInserterd= new Node();
+		nodeToBeInserterd.key=key;
+		nodeToBeInserterd.data=data;
+		
+		if(root==null){
+			root=nodeToBeInserterd;
+		}
+		else{
+			Node parent=root;
+			while(true){
+				if(nodeToBeInserterd.key<parent.key && parent.leftChild==null){
+					parent.leftChild=nodeToBeInserterd;
+					System.out.println("Node inserted");
+					return;
+				}
+				else{
+					parent=parent.leftChild;
+				}
+				
+				if(nodeToBeInserterd.key>parent.key && parent.rightChild==null){
+					parent.rightChild=nodeToBeInserterd;
+					System.out.println("Node inserted");
+					return;
+				}
+				else{
+					parent=parent.rightChild;
+				}
+			}
+		}
+		
 	}
 	
 	public void delete(int key){
